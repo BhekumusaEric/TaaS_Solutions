@@ -240,8 +240,8 @@ Tasks must be completed in the order specified below. Each task includes:
 - [x] Schema validates (`npx prisma validate`)
 - [x] All indexes defined
 - [x] Foreign key constraints correct
-- [~] Enums defined (OrganisationType)
-- [~] No Prisma warnings
+- [x] Enums defined (OrganisationType)
+- [-] No Prisma warnings
 
 **Estimated Effort:** 4 hours
 
@@ -269,11 +269,11 @@ Tasks must be completed in the order specified below. Each task includes:
 
 **Completion Criteria:**
 
-- [~] Migration generates without errors
-- [~] Migration applies successfully
-- [~] All tables exist in database
-- [~] Prisma Client regenerates
-- [~] Can query tables via Prisma
+- [x] Migration generates without errors
+- [x] Migration applies successfully
+- [x] All tables exist in database
+- [x] Prisma Client regenerates
+- [x] Can query tables via Prisma
 
 **Estimated Effort:** 2 hours
 
@@ -303,13 +303,13 @@ Tasks must be completed in the order specified below. Each task includes:
 
 **Completion Criteria:**
 
-- [~] Seed script runs (`npx prisma db seed`)
-- [~] Demo users created with "DEMO" prefix
-- [~] Demo organisations created
-- [~] Roles and permissions created
-- [~] Users assigned to roles and organisations
-- [~] Script rejects production environment
-- [~] Idempotent (can run multiple times)
+- [x] Seed script runs (`npx prisma db seed`)
+- [x] Demo users created with "DEMO" prefix
+- [x] Demo organisations created
+- [x] Roles and permissions created
+- [x] Users assigned to roles and organisations
+- [x] Script rejects production environment
+- [-] Idempotent (can run multiple times)
 
 **Estimated Effort:** 4 hours
 
@@ -347,11 +347,11 @@ Tasks must be completed in the order specified below. Each task includes:
 
 **Completion Criteria:**
 
-- [~] NextAuth.js configuration valid
-- [~] Session creation works
-- [~] JWT signed correctly
-- [~] Helper functions tested
-- [~] Environment variables documented
+- [x] NextAuth.js configuration valid
+- [x] Session creation works
+- [x] JWT signed correctly
+- [x] Helper functions tested
+- [x] Environment variables documented
 
 **Estimated Effort:** 4 hours
 
@@ -384,7 +384,7 @@ Tasks must be completed in the order specified below. Each task includes:
 
 **Completion Criteria:**
 
-- [~] bcrypt configured with appropriate rounds (10-12)
+- [-] bcrypt configured with appropriate rounds (10-12)
 - [~] hashPassword returns valid bcrypt hash
 - [~] verifyPassword correctly validates
 - [~] All tests pass
