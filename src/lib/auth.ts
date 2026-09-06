@@ -98,7 +98,7 @@ export const authOptions: NextAuthOptions = {
 
   // Custom pages
   pages: {
-    signIn: '/sign-in',
+    signIn: '/auth/sign-in',
     signOut: '/sign-out',
     error: '/auth/error',
     verifyRequest: '/auth/verify-request',

@@ -26,16 +26,17 @@ interface OrgDetailClientProps {
 export function OrgDetailClient({ orgId, orgName, orgType, orgDescription, members }: OrgDetailClientProps) {
   const router = useRouter();
   const [email, setEmail] = useState('');
-  const [error, setError] = useState<string | null>(null);
+  const [addError, setAddError] = useState<string | null>(null);
+  const [actionError, setActionError] = useState<string | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
 
   const handleAddMember = async () => {
-    setError(null);
+    setAddError(null);
     startTransition(async () => {
       const result = await addOrganisationMember({ organisationId: orgId, email });
       if (result.error) {
-        setError(result.error);
+        setAddError(result.error);
       } else {
         setEmail('');
         setDialogOpen(false);
@@ -45,9 +46,14 @@ export function OrgDetailClient({ orgId, orgName, orgType, orgDescription, membe
   };
 
   const handleRemoveMember = async (userId: string) => {
+    setActionError(null);
     startTransition(async () => {
-      await removeOrganisationMember({ organisationId: orgId, userId });
-      router.refresh();
+      const result = await removeOrganisationMember({ organisationId: orgId, userId });
+      if (result.error) {
+        setActionError(result.error);
+      } else {
+        router.refresh();
+      }
     });
   };
 
@@ -80,6 +86,11 @@ export function OrgDetailClient({ orgId, orgName, orgType, orgDescription, membe
               <Users className="h-5 w-5 text-teal-500" />
               Members ({members.length})
             </CardTitle>
+            {actionError && (
+              <div className="rounded-md bg-red-50 p-3" role="alert">
+                <p className="text-sm font-medium text-red-800">{actionError}</p>
+              </div>
+            )}
             <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
               <DialogTrigger asChild>
                 <Button size="sm" className="bg-teal-500 text-white hover:bg-teal-600">
@@ -92,9 +103,9 @@ export function OrgDetailClient({ orgId, orgName, orgType, orgDescription, membe
                   <DialogTitle>Add Member</DialogTitle>
                 </DialogHeader>
                 <div className="space-y-4 pt-4">
-                  {error && (
+                  {addError && (
                     <div className="rounded-md bg-red-50 p-3" role="alert">
-                      <p className="text-sm font-medium text-red-800">{error}</p>
+                      <p className="text-sm font-medium text-red-800">{addError}</p>
                     </div>
                   )}
                   <Input
@@ -128,6 +139,8 @@ export function OrgDetailClient({ orgId, orgName, orgType, orgDescription, membe
                     className="text-red-500 hover:text-red-700 hover:bg-red-50"
                     onClick={() => handleRemoveMember(member.userId)}
                     disabled={isPending}
+                    aria-label="Remove member"
+                    title="Remove member"
                   >
                     <Trash2 className="h-4 w-4" />
                   </Button>

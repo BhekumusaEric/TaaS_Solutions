@@ -9,8 +9,8 @@ import { getUserPermissions } from '@/modules/roles/queries';
 export async function canAccessOrganisation(userId: string, organisationId: string): Promise<boolean> {
   // Check global permissions first
   const userPermissions = await getUserPermissions(userId);
-  const isGlobalAdmin = checkPermission(userPermissions, 'organisation', 'read_all');
-  
+  const isGlobalAdmin = checkPermission(userPermissions, 'organisation', 'read:all');
+
   if (isGlobalAdmin) return true;
 
   // Fallback to checking direct membership

@@ -30,7 +30,8 @@ interface UserDetailClientProps {
 export function UserDetailClient({ userId, userName, userEmail, userRoles, allRoles }: UserDetailClientProps) {
   const router = useRouter();
   const [selectedRole, setSelectedRole] = useState('');
-  const [error, setError] = useState<string | null>(null);
+  const [assignError, setAssignError] = useState<string | null>(null);
+  const [removeError, setRemoveError] = useState<string | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
 
@@ -50,11 +51,11 @@ export function UserDetailClient({ userId, userName, userEmail, userRoles, allRo
 
   const handleAssignRole = async () => {
     if (!selectedRole) return;
-    setError(null);
+    setAssignError(null);
     startTransition(async () => {
       const result = await assignRole({ userId, roleName: selectedRole });
       if (result.error) {
-        setError(result.error);
+        setAssignError(result.error);
       } else {
         setSelectedRole('');
         setDialogOpen(false);
@@ -64,9 +65,14 @@ export function UserDetailClient({ userId, userName, userEmail, userRoles, allRo
   };
 
   const handleRemoveRole = async (roleId: string) => {
+    setRemoveError(null);
     startTransition(async () => {
-      await removeRole({ userId, roleId });
-      router.refresh();
+      const result = await removeRole({ userId, roleId });
+      if (result.error) {
+        setRemoveError(result.error);
+      } else {
+        router.refresh();
+      }
     });
   };
 
@@ -91,7 +97,11 @@ export function UserDetailClient({ userId, userName, userEmail, userRoles, allRo
             {availableRoles.length > 0 && (
               <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
                 <DialogTrigger asChild>
-                  <Button size="sm" className="bg-teal-500 text-white hover:bg-teal-600">
+                  <Button
+                    size="sm"
+                    className="bg-teal-500 text-white hover:bg-teal-600"
+                    aria-label="Open role form"
+                  >
                     <Plus className="mr-1 h-4 w-4" />
                     Assign Role
                   </Button>
@@ -101,9 +111,9 @@ export function UserDetailClient({ userId, userName, userEmail, userRoles, allRo
                     <DialogTitle>Assign Role</DialogTitle>
                   </DialogHeader>
                   <div className="space-y-4 pt-4">
-                    {error && (
+                    {assignError && (
                       <div className="rounded-md bg-red-50 p-3" role="alert">
-                        <p className="text-sm font-medium text-red-800">{error}</p>
+                        <p className="text-sm font-medium text-red-800">{assignError}</p>
                       </div>
                     )}
                     <select
@@ -118,7 +128,13 @@ export function UserDetailClient({ userId, userName, userEmail, userRoles, allRo
                         </option>
                       ))}
                     </select>
-                    <Button onClick={handleAssignRole} isLoading={isPending} className="w-full" disabled={!selectedRole}>
+                    <Button
+                      onClick={handleAssignRole}
+                      isLoading={isPending}
+                      className="w-full"
+                      disabled={!selectedRole}
+                      aria-label="Assign role"
+                    >
                       Assign Role
                     </Button>
                   </div>
@@ -128,6 +144,11 @@ export function UserDetailClient({ userId, userName, userEmail, userRoles, allRo
           </div>
         </CardHeader>
         <CardContent>
+          {removeError && (
+            <div className="mb-4 rounded-md bg-red-50 p-3" role="alert">
+              <p className="text-sm font-medium text-red-800">{removeError}</p>
+            </div>
+          )}
           {userRoles.length === 0 ? (
             <p className="text-center py-8 text-gray-500">No roles assigned yet.</p>
           ) : (
@@ -146,6 +167,8 @@ export function UserDetailClient({ userId, userName, userEmail, userRoles, allRo
                     className="text-red-500 hover:text-red-700 hover:bg-red-50"
                     onClick={() => handleRemoveRole(ur.roleId)}
                     disabled={isPending}
+                    aria-label={`Remove role ${ur.role.name}`}
+                    title={`Remove role ${ur.role.name}`}
                   >
                     <Trash2 className="h-4 w-4" />
                   </Button>

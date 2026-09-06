@@ -3,6 +3,13 @@ export interface PermissionObject {
   action: string;
 }
 
+function normalizePermissionValue(value: string): string {
+  return String(value ?? '')
+    .trim()
+    .toLowerCase()
+    .replace(/[\s_]+/g, ':');
+}
+
 export function checkPermission(
   userPermissions: PermissionObject[],
   requiredResource: string,
@@ -10,9 +17,20 @@ export function checkPermission(
 ): boolean {
   if (!userPermissions || !Array.isArray(userPermissions)) return false;
 
-  return userPermissions.some(
-    p => p.resource === requiredResource && p.action === requiredAction
-  );
+  const normalizedRequiredResource = normalizePermissionValue(requiredResource);
+  const normalizedRequiredAction = normalizePermissionValue(requiredAction);
+
+  return userPermissions.some((permission) => {
+    const permissionResource = normalizePermissionValue(permission.resource);
+    const permissionAction = normalizePermissionValue(permission.action);
+
+    const exactMatch = permissionResource === normalizedRequiredResource && permissionAction === normalizedRequiredAction;
+    const wildcardResourceMatch = permissionResource === '*' && permissionAction === '*';
+    const wildcardActionMatch = permissionResource === normalizedRequiredResource && permissionAction === '*';
+    const wildcardResourceOnlyMatch = permissionResource === '*' && permissionAction === normalizedRequiredAction;
+
+    return exactMatch || wildcardResourceMatch || wildcardActionMatch || wildcardResourceOnlyMatch;
+  });
 }
 
 export function hasAnyPermission(

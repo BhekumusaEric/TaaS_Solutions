@@ -20,9 +20,9 @@ describe('Organisation Permissions', () => {
     vi.clearAllMocks();
   });
 
-  it('allows access if user has global organisation:read_all permission', async () => {
+  it('allows access if user has global organisation:read:all permission', async () => {
     vi.mocked(getUserPermissions).mockResolvedValue([
-      { resource: 'organisation', action: 'read_all' }
+      { resource: 'organisation', action: 'read:all' }
     ] as any);
     
     const result = await canAccessOrganisation('admin-id', 'org-1');
