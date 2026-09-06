@@ -52,6 +52,10 @@ module.exports = {
         'light-grey': '#F3F5F7',
         'dark-text': '#1F2D3D',
       },
+      fontFamily: {
+        sans: ['Inter', 'SF Pro', 'Helvetica Neue', 'sans-serif'],
+        mono: ['Fira Code', 'Monaco', 'Courier', 'monospace'],
+      },
     },
   },
   plugins: [],

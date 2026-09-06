@@ -4,7 +4,12 @@
 
 @layer base {
   body {
-    @apply bg-white text-dark-text;
+    @apply bg-light-grey text-dark-text antialiased selection:bg-teal-200;
+  }
+
+  /* Accessible focus indicators as per brand.md */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-navy-500 ring-offset-2;
   }
 }
 

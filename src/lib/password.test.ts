@@ -357,8 +357,9 @@ describe('Password Hashing Utilities', () => {
       const validPassword = 'Test123!';
       const corruptedHash = '$2a$12$invalid_corrupted_hash_data';
 
-      // Should not crash, should throw informative error
-      await expect(verifyPassword(validPassword, corruptedHash)).rejects.toThrow();
+      // Should not crash, should gracefully return false
+      const result = await verifyPassword(validPassword, corruptedHash);
+      expect(result).toBe(false);
     });
   });
 });

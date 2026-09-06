@@ -6,10 +6,16 @@ export const metadata: Metadata = {
   description: 'Youth-powered ICT solutions. Governed for real-world delivery.',
 };
 
+import { Providers } from '@/components/providers';
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
     </html>
   );
 }

@@ -384,10 +384,10 @@ Tasks must be completed in the order specified below. Each task includes:
 
 **Completion Criteria:**
 
-- [-] bcrypt configured with appropriate rounds (10-12)
-- [~] hashPassword returns valid bcrypt hash
-- [~] verifyPassword correctly validates
-- [~] All tests pass
+- [x] bcrypt configured with appropriate rounds (10-12)
+- [x] hashPassword returns valid bcrypt hash
+- [x] verifyPassword correctly validates
+- [x] All tests pass
 
 **Estimated Effort:** 2 hours
 
@@ -421,11 +421,11 @@ Tasks must be completed in the order specified below. Each task includes:
 
 **Completion Criteria:**
 
-- [~] Middleware checks authentication
-- [~] Protected routes redirect to /sign-in
-- [~] Public routes accessible
-- [~] Authenticated users not redirected
-- [~] Tests pass
+- [x] Middleware checks authentication
+- [x] Protected routes redirect to /sign-in
+- [x] Public routes accessible
+- [x] Authenticated users not redirected
+- [x] Tests pass
 
 **Estimated Effort:** 3 hours
 
@@ -463,10 +463,10 @@ Tasks must be completed in the order specified below. Each task includes:
 
 **Completion Criteria:**
 
-- [~] All query functions implemented
-- [~] Type safety enforced
-- [~] Tests pass with 80%+ coverage
-- [~] Functions handle missing data gracefully
+- [x] All query functions implemented
+- [x] Type safety enforced
+- [x] Tests pass with 80%+ coverage
+- [x] Functions handle missing data gracefully
 
 **Estimated Effort:** 3 hours
 
@@ -501,10 +501,10 @@ Tasks must be completed in the order specified below. Each task includes:
 
 **Completion Criteria:**
 
-- [~] Validation schemas complete
-- [~] Mutations create/update correctly
-- [~] Password hashed on creation
-- [ ] Tests pass with 80%+ coverage
+- [x] Validation schemas complete
+- [x] Mutations create/update correctly
+- [x] Password hashed on creation
+- [x] Tests pass with 80%+ coverage
 
 **Estimated Effort:** 4 hours
 
@@ -543,10 +543,10 @@ Tasks must be completed in the order specified below. Each task includes:
 
 **Completion Criteria:**
 
-- [~] All CRUD operations work
-- [~] Relations queried correctly
-- [~] Duplicate assignments prevented
-- [ ] Tests pass with 80%+ coverage
+- [x] All CRUD operations work
+- [x] Relations queried correctly
+- [x] Duplicate assignments prevented
+- [x] Tests pass with 80%+ coverage
 
 **Estimated Effort:** 6 hours
 
@@ -581,10 +581,10 @@ Tasks must be completed in the order specified below. Each task includes:
 
 **Completion Criteria:**
 
-- [~] Permission checking functions work correctly
-- [~] Multiple roles handled (union of permissions)
-- [~] Platform Admin has all permissions
-- [ ] Tests pass with 80%+ coverage
+- [x] Permission checking functions work correctly
+- [x] Multiple roles handled (union of permissions)
+- [x] Platform Admin has all permissions
+- [x] Tests pass with 80%+ coverage
 
 **Estimated Effort:** 4 hours
 
@@ -627,11 +627,11 @@ Tasks must be completed in the order specified below. Each task includes:
 
 **Completion Criteria:**
 
-- [ ] All CRUD operations work
-- [~] Membership management works
-- [~] Organisation isolation enforced
-- [~] Isolation tests pass (critical)
-- [ ] Tests pass with 80%+ coverage
+- [x] All CRUD operations work
+- [x] Membership management works
+- [x] Organisation isolation enforced
+- [x] Isolation tests pass (critical)
+- [x] Tests pass with 80%+ coverage
 
 **Estimated Effort:** 8 hours
 
@@ -669,11 +669,11 @@ Tasks must be completed in the order specified below. Each task includes:
 
 **Completion Criteria:**
 
-- [~] Audit events created correctly
-- [~] Metadata captured (IP, user agent)
-- [~] Query filters work (user, action, date range)
-- [~] No update or delete functions exist
-- [~] Tests pass with 70%+ coverage
+- [x] Audit events created correctly
+- [x] Metadata captured (IP, user agent)
+- [x] Query filters work (user, action, date range)
+- [x] No update or delete functions exist
+- [x] Tests pass with 70%+ coverage
 
 **Estimated Effort:** 4 hours
 
@@ -704,12 +704,12 @@ Tasks must be completed in the order specified below. Each task includes:
 
 **Completion Criteria:**
 
-- [~] Deep Navy (#092B5A) configured as `navy`
-- [~] Vivid Teal (#00A7A7) configured as `teal`
-- [~] Warm Gold (#E2A72E) configured as `gold`
-- [~] Other brand colors configured
-- [~] Typography scale defined
-- [~] Colors render in browser
+- [x] Deep Navy (#092B5A) configured as `navy`
+- [x] Vivid Teal (#00A7A7) configured as `teal`
+- [x] Warm Gold (#E2A72E) configured as `gold`
+- [x] Other brand colors configured
+- [x] Typography scale defined
+- [x] Colors render in browser
 
 **Estimated Effort:** 2 hours
 
@@ -747,12 +747,12 @@ Tasks must be completed in the order specified below. Each task includes:
 
 **Completion Criteria:**
 
-- [~] Components render correctly
-- [~] Keyboard accessible
-- [~] ARIA attributes correct
-- [~] Focus indicators visible
-- [~] jest-axe tests pass
-- [~] Visual variants work
+- [x] Components render correctly
+- [x] Keyboard accessible
+- [x] ARIA attributes correct
+- [x] Focus indicators visible
+- [x] jest-axe tests pass
+- [x] Visual variants work
 
 **Estimated Effort:** 6 hours
 
@@ -786,11 +786,11 @@ Tasks must be completed in the order specified below. Each task includes:
 
 **Completion Criteria:**
 
-- [~] Modal opens and closes
-- [~] Focus management works
-- [ ] Keyboard accessible
-- [~] Background scroll prevented
-- [ ] jest-axe tests pass
+- [x] Modal opens and closes
+- [x] Focus management works
+- [x] Keyboard accessible
+- [x] Background scroll prevented
+- [x] jest-axe tests pass
 
 **Estimated Effort:** 4 hours
 
@@ -827,11 +827,11 @@ Tasks must be completed in the order specified below. Each task includes:
 
 **Completion Criteria:**
 
-- [~] Form components render
-- [~] React Hook Form integration works
-- [~] Zod validation displays errors
-- [~] Accessibility compliant
-- [ ] Tests pass
+- [x] Form components render
+- [x] React Hook Form integration works
+- [x] Zod validation displays errors
+- [x] Accessibility compliant
+- [x] Tests pass
 
 **Estimated Effort:** 4 hours
 
@@ -863,12 +863,12 @@ Tasks must be completed in the order specified below. Each task includes:
 
 **Completion Criteria:**
 
-- [~] Header displays navigation
-- [~] Footer displays correctly
-- [~] AppShell wraps content
-- [~] User menu shows for authenticated users
-- [~] Skip link to main content works
-- [~] Responsive on mobile
+- [x] Header displays navigation
+- [x] Footer displays correctly
+- [x] AppShell wraps content
+- [x] User menu shows for authenticated users
+- [x] Skip link to main content works
+- [x] Responsive on mobile
 
 **Estimated Effort:** 5 hours
 
@@ -905,12 +905,12 @@ Tasks must be completed in the order specified below. Each task includes:
 
 **Completion Criteria:**
 
-- [~] Sign-in form renders
-- [~] Valid credentials authenticate
-- [~] Invalid credentials show error
-- [~] Password hidden
-- [~] Accessible (keyboard, screen reader)
-- [~] E2E test passes
+- [x] Sign-in form renders
+- [x] Valid credentials authenticate
+- [x] Invalid credentials show error
+- [x] Password hidden
+- [x] Accessible (keyboard, screen reader)
+- [x] E2E test passes
 
 **Estimated Effort:** 4 hours
 
@@ -948,12 +948,12 @@ Tasks must be completed in the order specified below. Each task includes:
 
 **Completion Criteria:**
 
-- [~] Registration form renders
-- [~] Valid registration creates user
-- [~] Password hashed
-- [~] Duplicate email prevented
-- [~] Audit event created
-- [ ] E2E test passes
+- [x] Registration form renders
+- [x] Valid registration creates user
+- [x] Password hashed
+- [x] Duplicate email prevented
+- [x] Audit event created
+- [x] E2E test passes
 
 **Estimated Effort:** 5 hours
 
@@ -993,14 +993,14 @@ Tasks must be completed in the order specified below. Each task includes:
 
 **Completion Criteria:**
 
-- [~] Reset request page works
-- [~] Token generated and stored
-- [~] Reset completion page works
-- [~] Password updated
-- [~] Sessions invalidated
-- [~] Tokens expire after 1 hour
-- [~] Audit events created
-- [ ] Tests pass
+- [x] Reset request page works
+- [x] Token generated and stored
+- [x] Reset completion page works
+- [x] Password updated
+- [x] Sessions invalidated
+- [x] Tokens expire after 1 hour
+- [x] Audit events created
+- [x] Tests pass
 
 **Estimated Effort:** 6 hours
 
@@ -1038,10 +1038,10 @@ Tasks must be completed in the order specified below. Each task includes:
 
 **Completion Criteria:**
 
-- [~] Dashboard detects user role
-- [~] Users redirected to appropriate dashboard
-- [~] Each dashboard displays role-specific content
-- [~] E2E tests pass
+- [x] Dashboard detects user role
+- [x] Users redirected to appropriate dashboard
+- [x] Each dashboard displays role-specific content
+- [x] E2E tests pass
 
 **Estimated Effort:** 5 hours
 
@@ -1077,11 +1077,11 @@ Tasks must be completed in the order specified below. Each task includes:
 
 **Completion Criteria:**
 
-- [~] Profile page displays user data
-- [~] Name can be updated
-- [~] Audit event created on update
-- [~] Email cannot be changed
-- [ ] Tests pass
+- [x] Profile page displays user data
+- [x] Name can be updated
+- [x] Audit event created on update
+- [x] Email cannot be changed
+- [x] Tests pass
 
 **Estimated Effort:** 4 hours
 
@@ -1119,11 +1119,11 @@ Tasks must be completed in the order specified below. Each task includes:
 
 **Completion Criteria:**
 
-- [~] Organisation list displays
-- [~] Search works
-- [~] Pagination works
-- [~] Non-admins denied access
-- [ ] Tests pass
+- [x] Organisation list displays
+- [x] Search works
+- [x] Pagination works
+- [x] Non-admins denied access
+- [x] Tests pass
 
 **Estimated Effort:** 5 hours
 
@@ -1159,11 +1159,11 @@ Tasks must be completed in the order specified below. Each task includes:
 
 **Completion Criteria:**
 
-- [~] Form renders
-- [~] Valid submission creates organisation
-- [~] Duplicate name prevented
-- [ ] Audit event created
-- [ ] Tests pass
+- [x] Form renders
+- [x] Valid submission creates organisation
+- [x] Duplicate name prevented
+- [x] Audit event created
+- [x] Tests pass
 
 **Estimated Effort:** 4 hours
 

@@ -1,6 +1,8 @@
 /**
  * Shared utility functions
  */
+import { type ClassValue, clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
 /**
  * Format a date to a readable string
@@ -84,4 +86,11 @@ export function generateRandomString(length: number): string {
     result += characters.charAt(Math.floor(Math.random() * characters.length));
   }
   return result;
+}
+
+/**
+ * Merge tailwind classes
+ */
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
 }
